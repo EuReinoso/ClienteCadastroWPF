@@ -1,20 +1,20 @@
 ﻿ClienteCadastroWPF
-1.0.0.0
+
 
 winexe
 C#
 .cs
-c:\PROJETOS\ClienteCadastroWPF\obj\Debug\net6.0-windows\
+C:\PROJETOS\ClienteCadastroWPF\obj\Debug\net6.0-windows\
 ClienteCadastroWPF
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-c:\PROJETOS\ClienteCadastroWPF\App.xaml
-11407045341
+C:\PROJETOS\ClienteCadastroWPF\App.xaml
+31602059058
 
-51456114895
+5-801174115
 1941709816142
-MainWindow.xaml;
+Forms\Cliente\ClienteCadastroWindow.xaml;Forms\Cliente\ClienteMenuWindow.xaml;Forms\Main\MainWindow.xaml;
 
-True
+False
 
