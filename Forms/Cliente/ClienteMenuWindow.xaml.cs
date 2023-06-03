@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClienteCadastroWPF.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,10 +18,14 @@ namespace ClienteCadastroWPF.Forms.Cliente
 
     public partial class ClienteMenuWindow : Window
     {
+        private DB db = new();
+
         public ClienteMenuWindow()
         {
             InitializeComponent();
             ResizeMode = ResizeMode.NoResize;
+
+            _carregaClientes();
         }
 
         private void btnSair_Click(object sender, RoutedEventArgs e)
@@ -34,6 +39,18 @@ namespace ClienteCadastroWPF.Forms.Cliente
             window.Show();
 
             this.Close();
+        }
+
+        private void _carregaClientes()
+        {
+            var clientes = db.Cliente.Where(c => c.CLI_ATIVO == ckbAtivos.IsChecked).ToList();
+
+            foreach (var cliente in clientes)
+            {
+                Console.WriteLine(cliente);
+            }
+
+            dgClientes.ItemsSource = clientes;
         }
     }
 }

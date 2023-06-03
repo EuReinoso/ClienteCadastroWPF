@@ -33,42 +33,45 @@ namespace ClienteCadastroWPF.Forms.Cliente
 
         private void btnConfirmar_Click(object sender, RoutedEventArgs e)
         {
-
-            _endereco.END_CEP = Util.ApenasNumeros(txbCEP.Text);
-            _endereco.END_ENDERECO = txbEndereco.Text;
-            _endereco.END_NUMERO = txbNumero.Text;
-            _endereco.END_BAIRRO = txbBairro.Text;
-            _endereco.END_CIDADE = txbCidade.Text;
-
-            db.Add(_endereco);
-            db.SaveChanges();
-
-            _cliente.CLI_CGC = Util.ApenasNumeros(txbCGC.Text);
-            _cliente.CLI_NOME = txbNome.Text;
-            _cliente.CLI_CELULAR = Util.ApenasNumeros(txbCelular.Text);
-            _cliente.CLI_EMAIL = txbEmail.Text;
-            _cliente.CLI_NASCIMENTO = dpNascimento.SelectedDate;
-            _cliente.CLI_ENDERECO = _endereco.END_CODIGO;
-            _cliente.CLI_CADASTRO = DateTime.UtcNow;
-            _cliente.CLI_ATUALIZACAO = DateTime.UtcNow;
-
-            if (cbbSexo.Text == "Masculino")
+            if (_validaCGC())
             {
-                _cliente.CLI_SEXO = 'M';
+                _endereco.END_CEP = Util.ApenasNumeros(txbCEP.Text);
+                _endereco.END_ENDERECO = txbEndereco.Text;
+                _endereco.END_NUMERO = txbNumero.Text;
+                _endereco.END_BAIRRO = txbBairro.Text;
+                _endereco.END_CIDADE = txbCidade.Text;
+
+                db.Add(_endereco);
+                db.SaveChanges();
+
+                _cliente.CLI_CGC = Util.ApenasNumeros(txbCGC.Text);
+                _cliente.CLI_NOME = txbNome.Text;
+                _cliente.CLI_CELULAR = Util.ApenasNumeros(txbCelular.Text);
+                _cliente.CLI_EMAIL = txbEmail.Text;
+                _cliente.CLI_NASCIMENTO = dpNascimento.SelectedDate;
+                _cliente.CLI_ENDERECO = _endereco.END_CODIGO;
+                _cliente.CLI_CADASTRO = DateTime.UtcNow;
+                _cliente.CLI_ATUALIZACAO = DateTime.UtcNow;
+                _cliente.CLI_ATIVO = true;
+
+                if (cbbSexo.Text == "Masculino")
+                {
+                    _cliente.CLI_SEXO = 'M';
+                }
+                else if (cbbSexo.Text == "Feminino")
+                {
+                    _cliente.CLI_SEXO = 'F';
+                }
+
+                db.Add(_cliente);
+
+                db.SaveChanges();
+
+                ClienteCadastroWindow window = new();
+                window.Show();
+
+                this.Close();
             }
-            else if (cbbSexo.Text == "Feminino")
-            {
-                _cliente.CLI_SEXO = 'F';
-            }
-
-            db.Add(_cliente);
-
-            db.SaveChanges();
-
-            ClienteCadastroWindow window = new();
-            window.Show();
-
-            this.Close();
         }
 
         private void btnSair_Click(object sender, RoutedEventArgs e)
@@ -100,6 +103,7 @@ namespace ClienteCadastroWPF.Forms.Cliente
                 }
             }
         }
+
         private void txbNome_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -107,6 +111,7 @@ namespace ClienteCadastroWPF.Forms.Cliente
                txbCelular.Focus();
             }
         }
+
         private void txbCelular_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -114,6 +119,7 @@ namespace ClienteCadastroWPF.Forms.Cliente
                 txbEmail.Focus();
             }
         }
+
         private void txbEmail_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -137,6 +143,7 @@ namespace ClienteCadastroWPF.Forms.Cliente
                 txbCEP.Focus();
             }
         }
+
         private void txbCEP_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -160,6 +167,7 @@ namespace ClienteCadastroWPF.Forms.Cliente
                 txbBairro.Focus();
             }
         }
+
         private void txbBairro_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
