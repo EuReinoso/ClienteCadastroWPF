@@ -3,10 +3,83 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:ClienteCadastroWPF.Forms.Cliente"
         mc:Ignorable="d"
-        Title="ClienteCadastroWindow" Height="450" Width="800">
-    <Grid>
-        
+        WindowStartupLocation="CenterScreen"
+        Title="Cliente Cadastro" Height="450" Width="800">
+    
+    <Grid Background="WhiteSmoke">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border BorderBrush="Black" BorderThickness="1">
+            <Grid Grid.Row="0" Background="#FFD7FFD7">
+                <Button x:Name="btnSair" Margin="700,16,18,16" FontFamily="Impact" FontSize="18" Click="btnSair_Click" BorderThickness="0">
+                    <Button.Background>
+                        <ImageBrush Stretch="None" ImageSource="/Imagens/sair.png"/>
+                    </Button.Background>
+                    <Image Source="/Imagens/sair.png"/>
+                </Button>
+                <Button x:Name="btnConfirmar" Margin="589,13,100,13" Content="Confirmar" FontFamily="Impact" FontSize="18" Click="btnConfirmar_Click"/>
+
+                <StackPanel Margin="29,16,640,4" RenderTransformOrigin="0.495,0.481">
+                    <RadioButton Content="Física" FontSize="15" x:Name="rdbFisica" Width="177" Click="rdbFisica_Click" FontWeight="Bold" IsChecked="True"/>
+                    <RadioButton Content="Jurídica" FontSize="15" x:Name="rdbJuridica" Width="177" Click="rdbJuridica_Click" FontWeight="Bold" Height="20"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1">
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Name="lblCGC" Content="CPF" HorizontalAlignment="Left" FontSize="15" Margin="36,0,0,30" VerticalAlignment="Top" Width="101" FontWeight="Bold"/>
+                <xctk:MaskedTextBox Name="txbCGC" Mask="000 , 000 , 000 - 00" VerticalAlignment="Top" VerticalContentAlignment="Center" Margin="36,32,576,0"  FontSize="15" KeyUp="txbCGC_KeyUp" />
+
+                <Label Name="lblNome" Content="Nome" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Top"  Margin="247,0,0,30" Width="101" FontWeight="Bold"/>
+                <TextBox Name="txbNome" Margin="247,30,226,5" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="15"/>
+
+                <Label x:Name="lblCelular" Content="Celular" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Top" Width="102" FontWeight="Bold" Margin="36,0,0,0" Grid.Row="1"/>
+                <xctk:MaskedTextBox x:Name="txbCelular" Mask="(00) 0 0000-0000" VerticalAlignment="Center" Margin="36,30,630,0"  VerticalContentAlignment="Center" FontSize="15" Grid.Row="1"/>
+
+                <Label x:Name="lblEmail" Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Margin="247,0,0,0" Width="101" FontWeight="Bold" Grid.Row="1"/>
+                <TextBox x:Name="txbEmail" Margin="247,30,226,0" FontSize="15" VerticalAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
+
+                <Label x:Name="lblSexo" Content="Sexo" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Top" Margin="36,0,0,0" Width="102" FontWeight="Bold" Grid.Row="2" Height="30"/>
+                <ComboBox Name="cbbSexo" Margin="36,30,618,0" Grid.Row="2" FontSize="13" VerticalAlignment="Top" VerticalContentAlignment="Center">
+                    <ComboBoxItem Content="Masculino" FontSize="13" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                    <ComboBoxItem Content="Feminino" FontSize="13" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                </ComboBox>
+
+                <Label x:Name="lblNascimento" Content="Data Nascimento" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Margin="247,0,0,0" Width="134" FontWeight="Bold" Grid.Row="2"/>
+                <DatePicker Name="dpNascimento" FontSize="15" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Row="2" Margin="247,30,390,0"/>
+
+                <Label x:Name="lblCEP" Content="CEP" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Margin="36,0,0,0" Width="101" FontWeight="Bold" Grid.Row="3"/>
+                <xctk:MaskedTextBox x:Name="txbCEP" Mask="00000 - 000" VerticalAlignment="Top" Margin="36,35,644,0"  VerticalContentAlignment="Center" FontSize="15" Grid.Row="3"/>
+
+                <Label x:Name="lblEndereco" Content="Endereco" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Margin="247,0,0,0" Width="101" FontWeight="Bold" Grid.Row="3"/>
+                <TextBox x:Name="txbEndereco" Margin="247,35,226,0" FontSize="15" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Row="3"/>
+
+                <Label x:Name="lblNumero" Content="Numero" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Margin="605,0,0,0" Width="101" FontWeight="Bold" Grid.Row="3"/>
+                <TextBox x:Name="txbNumero" Margin="605,35,108,0" FontSize="15" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Row="3"/>
+
+                <Label x:Name="lblBairro" Content="Bairro" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Margin="36,2,0,0" Width="101" FontWeight="Bold" Grid.Row="4"/>
+                <TextBox x:Name="txbBairro" Margin="36,32,605,0" FontSize="15" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Row="4"/>
+
+                <Label x:Name="lblCidade" Content="Cidade" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" Margin="247,0,0,0" Width="101" FontWeight="Bold" Grid.Row="4"/>
+                <TextBox x:Name="txbCidade" Margin="247,32,308,0" FontSize="15" VerticalAlignment="Top" VerticalContentAlignment="Center" Grid.Row="4"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ClienteCadastroWPF.Forms.Cliente;
 
 namespace ClienteCadastroWPF.Forms.Main
 {
@@ -20,6 +21,13 @@ namespace ClienteCadastroWPF.Forms.Main
         public MainWindow()
         {
             InitializeComponent();
+            ResizeMode = ResizeMode.NoResize;
+        }
+
+        private void btnClientes_Click(object sender, RoutedEventArgs e)
+        {
+            ClienteMenuWindow window = new ClienteMenuWindow();
+            window.Show();
         }
     }
 }

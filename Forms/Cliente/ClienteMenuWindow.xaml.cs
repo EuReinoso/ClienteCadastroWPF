@@ -20,6 +20,20 @@ namespace ClienteCadastroWPF.Forms.Cliente
         public ClienteMenuWindow()
         {
             InitializeComponent();
+            ResizeMode = ResizeMode.NoResize;
+        }
+
+        private void btnSair_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnIncluir_Click(object sender, RoutedEventArgs e)
+        {
+            ClienteCadastroWindow window = new ClienteCadastroWindow();
+            window.Show();
+
+            this.Close();
         }
     }
 }

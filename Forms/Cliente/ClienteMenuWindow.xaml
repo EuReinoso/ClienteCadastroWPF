@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClienteCadastroWPF.Forms.Cliente"
         mc:Ignorable="d"
-        Title="ClienteMenuWindow" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="Clientes" Height="450" Width="800">
     <Grid>
-        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#FFD7FFD7">
+            <Button x:Name="btnSair" Margin="700,16,18,16" FontFamily="Impact" FontSize="18" Click="btnSair_Click" BorderThickness="0">
+                <Button.Background>
+                    <ImageBrush Stretch="None" ImageSource="/Imagens/sair.png"/>
+                </Button.Background>
+                <Image Source="/Imagens/sair.png"/>
+            </Button>
+            <Button x:Name="btnExcluir" Margin="606,13,100,13" Content="Excluir" FontFamily="Impact" FontSize="18"/>
+            <Button x:Name="btnIncluir" Margin="497,13,209,13" Content="Incluir" FontFamily="Impact" FontSize="18" Click="btnIncluir_Click"/>
+        </Grid>
+
     </Grid>
 </Window>

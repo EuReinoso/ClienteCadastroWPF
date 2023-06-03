@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:ClienteCadastroWPF"
              StartupUri="Forms/Main/MainWindow.xaml">
     <Application.Resources>
-         
+        
     </Application.Resources>
 </Application>
