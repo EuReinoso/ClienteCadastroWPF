@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace ClienteCadastroWPF.Forms.Cliente
 {
-    /// <summary>
-    /// Lógica interna para ClienteCadastroWindow.xaml
-    /// </summary>
     public partial class ClienteCadastroWindow : Window
     {
         private DB db =  new();
@@ -101,6 +98,73 @@ namespace ClienteCadastroWPF.Forms.Cliente
                 {
                     txbNome.Focus();
                 }
+            }
+        }
+        private void txbNome_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+               txbCelular.Focus();
+            }
+        }
+        private void txbCelular_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txbEmail.Focus();
+            }
+        }
+        private void txbEmail_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                cbbSexo.Focus();
+            }
+        }
+
+        private void cbbSexo_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                dpNascimento.Focus();
+            }
+        }
+
+        private void dpNascimento_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txbCEP.Focus();
+            }
+        }
+        private void txbCEP_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txbEndereco.Focus();
+            }
+        }
+
+        private void txbEndereco_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txbNumero.Focus();
+            }
+        }
+
+        private void txbNumero_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txbBairro.Focus();
+            }
+        }
+        private void txbBairro_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                txbCidade.Focus();
             }
         }
 
