@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ClienteCadastroWPF.Forms.Cliente;
+using ClienteCadastroWPF.Forms.Integracao;
 
 namespace ClienteCadastroWPF.Forms.Main
 {
@@ -27,6 +28,12 @@ namespace ClienteCadastroWPF.Forms.Main
         private void btnClientes_Click(object sender, RoutedEventArgs e)
         {
             ClienteMenuWindow window = new ClienteMenuWindow();
+            window.Show();
+        }
+
+        private void btnIntegracao_Click(object sender, RoutedEventArgs e)
+        {
+            IntegracaoWindow window = new IntegracaoWindow();
             window.Show();
         }
     }

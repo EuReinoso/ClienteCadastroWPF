@@ -82,3 +82,5 @@ C:\PROJETOS\ClienteCadastroWPF\obj\Debug\net6.0-windows\ClienteCadastroWPF.Prope
 C:\PROJETOS\ClienteCadastroWPF\obj\Debug\net6.0-windows\ClienteCadastroWPF.csproj.GenerateResource.cache
 C:\PROJETOS\ClienteCadastroWPF\bin\Debug\net6.0-windows\DB_CONFIG.json
 C:\PROJETOS\ClienteCadastroWPF\obj\Debug\net6.0-windows\ClienteCadastroWPF_Content.g.cs
+C:\PROJETOS\ClienteCadastroWPF\obj\Debug\net6.0-windows\Forms\Integracao\IntegracaoWindow.g.cs
+C:\PROJETOS\ClienteCadastroWPF\obj\Debug\net6.0-windows\Forms\Integracao\IntegracaoWindow.baml

@@ -6,8 +6,8 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Menu Principal" Height="450" Width="800">
-    
-    <Grid x:Name="Menu_Principal">
+
+    <Grid x:Name="Menu_Principal" Background="WhiteSmoke">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400" />
             <ColumnDefinition Width="Auto" MinWidth="0"/>
@@ -24,7 +24,7 @@
             </Grid.RowDefinitions>
 
             <Button x:Name="btnClientes" Content="Clientes" Margin="91,142,91,20" FontSize="24" FontFamily="Impact" Click="btnClientes_Click"/>
-            <Button x:Name="btnIntegracao" Content="Integracão" Margin="91,22,91,-69" FontSize="24" FontFamily="Impact" Grid.Row="1"/>
+            <Button x:Name="btnIntegracao" Content="Integracão" Margin="91,22,91,-69" FontSize="24" FontFamily="Impact" Grid.Row="1" Click="btnIntegracao_Click"/>
         </Grid>
     </Grid>
 </Window>

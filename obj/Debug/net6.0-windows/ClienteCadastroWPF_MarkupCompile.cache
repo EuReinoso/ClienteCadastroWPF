@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\PROJETOS\ClienteCadastroWPF\App.xaml
-31602059058
+4226664467
 1-290624561
-10-1853772388
+11491597468
 2281366514389
-Forms\Cliente\ClienteCadastroWindow.xaml;Forms\Cliente\ClienteMenuWindow.xaml;Forms\Main\MainWindow.xaml;
+Forms\Cliente\ClienteCadastroWindow.xaml;Forms\Cliente\ClienteMenuWindow.xaml;Forms\Integracao\IntegracaoWindow.xaml;Forms\Main\MainWindow.xaml;
 
 False
 
