@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -19,6 +20,15 @@ public static class Util
     public static string ApenasNumeros(string input)
     {
         return new string(input.Where(char.IsDigit).ToArray());
+    }
+
+    public static StringContent ToStringContent(object parametrosContent)
+    {
+        string jsonString = JsonConvert.SerializeObject(parametrosContent);
+
+        var stringContent = new StringContent(jsonString, Encoding.UTF8, "application/json");
+
+        return stringContent;
     }
 
 

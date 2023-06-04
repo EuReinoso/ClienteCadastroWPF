@@ -19,7 +19,7 @@
             <Grid Grid.Row="0" Background="#FFD7FFD7">
 
                 <Label Name="lblEnderecoApi" Content="Enredeço da API" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Top" Width="129" FontWeight="Bold" Margin="10,9,0,0"/>
-                <TextBox Name="txbEnderecoApi" Margin="15,41,211,0" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="15" MaxLength="50" RenderTransformOrigin="0.5,0.5"/>
+                <TextBox Name="txbEnderecoApi" Margin="15,41,157,0" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="15" MaxLength="50" RenderTransformOrigin="0.5,0.5"/>
 
                 <Button x:Name="btnSair" Margin="368,18,10,18" FontFamily="Impact" FontSize="18" Click="btnSair_Click" BorderThickness="0" Cursor="Hand">
                     <Button.Background>
@@ -34,19 +34,21 @@
         <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1">
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="220"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Label Name="lblLogin" Content="Login" HorizontalAlignment="Center" FontSize="15" VerticalAlignment="Top" Width="53" FontWeight="Bold" Margin="0,6,0,0"/>
-                <TextBox Name="txbLogin" Margin="144,41,144,0" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="15" MaxLength="50" RenderTransformOrigin="0.5,0.5"/>
+                <Label Name="lblUsuario" Content="Usuário" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" VerticalAlignment="Top" Width="72" FontWeight="Bold" Height="32" Margin="0,4,0,0"/>
+                <TextBox Name="txbUsuario" Margin="144,36,144,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="15" MaxLength="50" RenderTransformOrigin="0.5,0.5"/>
 
-                <Label Name="lblSenha" Content="Senha" HorizontalAlignment="Center" FontSize="15" VerticalAlignment="Top" Width="54" FontWeight="Bold" Margin="0,70,0,0"/>
-                <TextBox Name="txbSenha" Margin="144,100,144,0" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="15" MaxLength="50" RenderTransformOrigin="0.5,0.5"/>
+                <Label Name="lblSenha" Content="Senha" HorizontalAlignment="Center" FontSize="15" VerticalAlignment="Top" Width="54" FontWeight="Bold" Margin="0,63,0,0" Height="30"/>
+                <TextBox Name="txbSenha" Margin="144,98,144,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="15" MaxLength="50" RenderTransformOrigin="0.5,0.5"/>
 
-                <Label Name="lblLoginAviso" Content="" HorizontalAlignment="Center" FontSize="15" VerticalAlignment="Top" Width="286" FontWeight="Bold" Margin="0,146,0,0"/>
+                <Button x:Name="btnLogin" Margin="182,134,182,56" Content="Login" FontFamily="Impact" FontSize="18" Click="btnLogin_Click" RenderTransformOrigin="0.5,0.5"/>
 
-                <Button x:Name="btnBaixar" Margin="154,26,154,-88" Content="Baixar Clientes" FontFamily="Impact" FontSize="18" Click="btnBaixar_Click" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
+                <Label Name="lblLoginAviso" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15" VerticalAlignment="Top" Width="286" FontWeight="Bold" Margin="0,180,0,0"/>
+
+                <Button x:Name="btnBaixar" Margin="149,23,149,-64" Content="Baixar Clientes" FontFamily="Impact" FontSize="18" Click="btnBaixar_Click" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
 
             </Grid>
         </Border>
