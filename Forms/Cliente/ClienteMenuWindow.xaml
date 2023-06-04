@@ -17,17 +17,25 @@
         <Border BorderBrush="Black" BorderThickness="1">
             <Grid Grid.Row="0" Background="#FFD7FFD7">
 
-                <Label Name="lblAtivos" Content="Ativos" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Top" FontWeight="Bold" Margin="22,16,0,0"/>
-                <CheckBox Name="ckbAtivos" IsChecked="True" Margin="10,25,764,30"/>
+                <Label Name="lblAtivos" Content="Ativos" HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Top" FontWeight="Bold" Margin="34,18,0,0"/>
+                <CheckBox Name="ckbAtivos" IsChecked="True" Margin="13,27,746,21"/>
 
-                <Button x:Name="btnSair" Margin="700,16,18,16" FontFamily="Impact" FontSize="18" Click="btnSair_Click" BorderThickness="0">
+                <Button x:Name="btnSair" Margin="700,16,18,16" FontFamily="Impact" FontSize="18" Click="btnSair_Click" BorderThickness="0" Cursor="Hand">
                     <Button.Background>
-                        <ImageBrush Stretch="None" ImageSource="/Imagens/sair.png"/>
+                        <ImageBrush Stretch="Uniform" ImageSource="/Imagens/sair.png"/>
                     </Button.Background>
-                    <Image Source="/Imagens/sair.png"/>
+                    <Image Source="/Imagens/sair.png" />
                 </Button>
-                <Button x:Name="btnExcluir" Margin="606,13,100,13" Content="Excluir" FontFamily="Impact" FontSize="18"/>
-                <Button x:Name="btnIncluir" Margin="497,13,209,13" Content="Incluir" FontFamily="Impact" FontSize="18" Click="btnIncluir_Click"/>
+
+                <Button x:Name="btnPesquisar" Margin="604,16,114,16" FontFamily="Impact" FontSize="18" Click="btnPesquisar_Click" BorderThickness="0" BorderBrush="#00707070" Foreground="#00000000" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush Stretch="Uniform" ImageSource="/Imagens/lupa.png"/>
+                    </Button.Background>
+                    <Image Source="/Imagens/lupa.png" />
+                </Button>
+
+                <Button x:Name="btnExcluir" Margin="507,13,199,13" Content="Excluir" FontFamily="Impact" FontSize="18" Click="btnExcluir_Click"/>
+                <Button x:Name="btnIncluir" Margin="399,13,307,13" Content="Incluir" FontFamily="Impact" FontSize="18" Click="btnIncluir_Click"/>
             </Grid>
         </Border>
 
@@ -37,7 +45,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <DataGrid Name="dgClientes" Grid.Row="1"  AlternatingRowBackground="#FFD6D6D6" FontSize="15" AutoGenerateColumns="False" IsReadOnly="True" RowHeight="25" MaxColumnWidth="150" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" RowBackground="#FFEEFFF8">
+                <DataGrid Name="dgClientes" Grid.Row="1"  AlternatingRowBackground="#FFD6D6D6" FontSize="15" AutoGenerateColumns="False" IsReadOnly="True" RowHeight="25" MaxColumnWidth="150" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" RowBackground="#FFEEFFF8" MouseDoubleClick="dgClientes_MouseDoubleClick" MouseUp="dgClientes_MouseUp">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Código" Binding="{Binding CLI_CODIGO}" />
                         <DataGridTextColumn Header="CPF/CNPJ" Binding="{Binding CLI_CGC}" />

@@ -1,5 +1,6 @@
 ﻿using ClienteCadastroWPF.Data;
 using ClienteCadastroWPF.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -25,10 +26,54 @@ namespace ClienteCadastroWPF.Forms.Cliente
 
         private EnderecoModel _endereco = new();
 
-        public ClienteCadastroWindow()
+        private readonly bool _isEditing = false;
+
+        public ClienteCadastroWindow(ClienteModel? editCliente = null)
         {
             InitializeComponent();
             ResizeMode = ResizeMode.NoResize;
+
+            if (editCliente != null)
+            {
+                _cliente = editCliente;
+                _endereco = db.Endereco.Where(e => e.END_CODIGO == _cliente.CLI_ENDERECO).FirstOrDefault();
+                _isEditing = true;
+                _carregaDadosCliente();
+            }
+        }
+
+        private void _carregaDadosCliente()
+        {
+            if (_cliente.CLI_CGC.Length == 11)
+            {
+                rdbFisica.IsChecked = true;
+            }
+            else if (_cliente.CLI_CGC.Length == 14)
+            {
+                rdbJuridica.IsChecked = true;
+            }
+
+            txbCGC.Text = _cliente.CLI_CGC;
+            txbNome.Text = _cliente.CLI_NOME;
+            txbCelular.Text = _cliente.CLI_CELULAR;
+            txbEmail.Text = _cliente.CLI_EMAIL;
+            dpNascimento.SelectedDate = _cliente.CLI_NASCIMENTO;
+            ckbAtivo.IsChecked = _cliente.CLI_ATIVO;
+            
+            if (_cliente.CLI_SEXO == 'M')
+            {
+                cbbSexo.Text = "Masculino";
+            }
+            else if (_cliente.CLI_SEXO == 'F')
+            {
+                cbbSexo.Text = "Feminino";
+            }
+
+            txbCEP.Text = _endereco.END_CEP;
+            txbEndereco.Text = _endereco.END_ENDERECO;
+            txbNumero.Text = _endereco.END_NUMERO;
+            txbBairro.Text = _endereco.END_BAIRRO;
+            txbCidade.Text = _endereco.END_CIDADE;
         }
 
         private void btnConfirmar_Click(object sender, RoutedEventArgs e)
@@ -41,8 +86,17 @@ namespace ClienteCadastroWPF.Forms.Cliente
                 _endereco.END_BAIRRO = txbBairro.Text;
                 _endereco.END_CIDADE = txbCidade.Text;
 
-                db.Add(_endereco);
+                if (!_isEditing)
+                {
+                    db.Add(_endereco);
+                }
+                else
+                {
+                    db.Update(_endereco);
+                }
+               
                 db.SaveChanges();
+                db.ChangeTracker.Clear();
 
                 _cliente.CLI_CGC = Util.ApenasNumeros(txbCGC.Text);
                 _cliente.CLI_NOME = txbNome.Text;
@@ -52,7 +106,7 @@ namespace ClienteCadastroWPF.Forms.Cliente
                 _cliente.CLI_ENDERECO = _endereco.END_CODIGO;
                 _cliente.CLI_CADASTRO = DateTime.UtcNow;
                 _cliente.CLI_ATUALIZACAO = DateTime.UtcNow;
-                _cliente.CLI_ATIVO = true;
+                _cliente.CLI_ATIVO = ckbAtivo.IsChecked;
 
                 if (cbbSexo.Text == "Masculino")
                 {
@@ -63,7 +117,15 @@ namespace ClienteCadastroWPF.Forms.Cliente
                     _cliente.CLI_SEXO = 'F';
                 }
 
-                db.Add(_cliente);
+
+                if (!_isEditing)
+                {
+                    db.Add(_cliente);
+                }
+                else
+                {
+                    db.Update(_cliente);
+                }
 
                 db.SaveChanges();
 
@@ -76,6 +138,9 @@ namespace ClienteCadastroWPF.Forms.Cliente
 
         private void btnSair_Click(object sender, RoutedEventArgs e)
         {
+            ClienteMenuWindow window = new();
+            window.Show();
+
             this.Close();
         }
 
@@ -176,7 +241,7 @@ namespace ClienteCadastroWPF.Forms.Cliente
             }
         }
 
-        private bool _validaCGC()
+        private bool _validaCGC(bool ignoraExistente = false)
         {
             bool isValido = true;
 
@@ -194,11 +259,19 @@ namespace ClienteCadastroWPF.Forms.Cliente
                 mensagemValidacao = "CNPJ inválido!";
                 isValido = false;
             }
-            //Verifica se o CGC ja existe no banco de dados
+            //Verifica se o CGC ja existe no banco de dados se não estiver editando
             else if (db.Cliente.Where(c => c.CLI_CGC == Util.ApenasNumeros(txbCGC.Text)).FirstOrDefault() != null)
             {
-                mensagemValidacao = "CPF/CNPJ ja existente!";
-                isValido = false;
+                if (_isEditing && Util.ApenasNumeros(txbCGC.Text) == _cliente.CLI_CGC)
+                {
+                    //pass
+                }
+                else
+                {
+                    mensagemValidacao = "CPF/CNPJ ja existente!";
+                    isValido = false;
+                }
+                
             }
 
             if (!isValido)

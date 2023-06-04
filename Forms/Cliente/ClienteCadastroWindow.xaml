@@ -26,6 +26,8 @@
                 </Button>
                 <Button x:Name="btnConfirmar" Margin="589,13,100,13" Content="Confirmar" FontFamily="Impact" FontSize="18" Click="btnConfirmar_Click"/>
 
+                <CheckBox Name="ckbAtivo" Content="Ativo" FontSize="15" FontWeight="Bold" IsChecked="True" Margin="483,16,237,39"/>
+
                 <StackPanel Margin="29,16,640,4" RenderTransformOrigin="0.495,0.481">
                     <RadioButton Content="Física" FontSize="15" x:Name="rdbFisica" Width="177" Click="rdbFisica_Click" FontWeight="Bold" IsChecked="True"/>
                     <RadioButton Content="Jurídica" FontSize="15" x:Name="rdbJuridica" Width="177" Click="rdbJuridica_Click" FontWeight="Bold" Height="20"/>
