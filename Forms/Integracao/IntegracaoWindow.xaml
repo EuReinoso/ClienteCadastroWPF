@@ -48,8 +48,10 @@
 
                 <Label Name="lblLoginAviso" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontSize="15" VerticalAlignment="Top" Width="286" FontWeight="Bold" Margin="0,180,0,0"/>
 
-                <Button x:Name="btnBaixar" Margin="149,23,149,-64" Content="Baixar Clientes" FontFamily="Impact" FontSize="18" Click="btnBaixar_Click" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
+                <Button x:Name="btnBaixar" Margin="149,10,149,-36" Content="Baixar Clientes" FontFamily="Impact" FontSize="18" Click="btnBaixar_Click" RenderTransformOrigin="0.5,0.5" Grid.Row="1" IsEnabled="False"/>
 
+                <Label Name="lblProgresso" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="12" Margin="61,62,61,-57"/>
+                <ProgressBar x:Name="pbProgresso" Visibility="Hidden" IsIndeterminate="True" Height="10" Grid.Row="1" Margin="61,83,61,-82"/>
             </Grid>
         </Border>
 

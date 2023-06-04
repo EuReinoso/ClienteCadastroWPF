@@ -44,8 +44,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-
-                <DataGrid Name="dgClientes" Grid.Row="1"  AlternatingRowBackground="#FFD6D6D6" FontSize="15" AutoGenerateColumns="False" IsReadOnly="True" RowHeight="25" MaxColumnWidth="150" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" RowBackground="#FFEEFFF8" MouseDoubleClick="dgClientes_MouseDoubleClick" MouseUp="dgClientes_MouseUp">
+                
+                <DataGrid Name="dgClientes" Grid.Row="1" Height="340" AlternatingRowBackground="#FFEDEDED" FontSize="15" AutoGenerateColumns="False" IsReadOnly="True" RowHeight="25" MaxColumnWidth="150" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" RowBackground="#FFEEFFF8" MouseDoubleClick="dgClientes_MouseDoubleClick" MouseUp="dgClientes_MouseUp" Width="771">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Código" Binding="{Binding CLI_CODIGO}" />
                         <DataGridTextColumn Header="CPF/CNPJ" Binding="{Binding CLI_CGC}" />

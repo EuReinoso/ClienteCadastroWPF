@@ -7,9 +7,9 @@ GO
 CREATE TABLE [CLIENTE](
 	[CLI_CODIGO] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[CLI_CGC] [varchar](14) NULL,
-	[CLI_NOME] [varchar](50) NULL,
+	[CLI_NOME] [varchar](100) NULL,
 	[CLI_ENDERECO] [int] NULL,
-	[CLI_CELULAR] [varchar](11) NULL,
+	[CLI_CELULAR] [varchar](14) NULL,
 	[CLI_EMAIL] [varchar](50) NULL,
 	[CLI_SEXO] [char](1) NULL CONSTRAINT CK_CLI_SEXO CHECK (CLI_SEXO IN ('M', 'F')),
 	[CLI_NASCIMENTO] [date] NULL,
